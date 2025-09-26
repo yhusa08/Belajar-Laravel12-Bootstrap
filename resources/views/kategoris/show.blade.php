@@ -29,6 +29,7 @@
                 <td>{{ $book->penerbit }}</td>
             </tr>
             @empty
+            o
             <tr>
                 <td colspan="4" class="text-center">Tidak ada buku pada kategori ini.</td>
             </tr>
