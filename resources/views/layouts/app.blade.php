@@ -21,7 +21,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('home') }}">
-                    {{ config('app.name', 'Perpustakaan') }}
+                    <img src="{{ asset('Labubu.jpeg') }}" alt="Logo" style="height: 30px;">
+                Beranda
                 </a>
                 <a class="navbar-brand" href="{{ url('kategoris') }}">
                 kategori
@@ -32,7 +33,7 @@
                 <a class="navbar-brand" href="{{ url('books') }}">
                 buku
                 </a>
-                <a class="navbar-brand" href="{{ url('data_pepinjams') }}">
+                <a class="navbar-brand" href="{{ url('data_peminjams') }}">
                     data peminjaman
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

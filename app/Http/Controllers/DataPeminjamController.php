@@ -1,21 +1,21 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\DataPepinjam;
+use App\Models\DataPeminjam;
 use Illuminate\Http\Request;
 
-class DataPepinjamController extends Controller
+class DataPeminjamController extends Controller
 {
     public function index()
     {
-        $data_pepinjams = DataPepinjam::latest()->paginate(10);
-        $i = ($data_pepinjams->currentPage() - 1) * $data_pepinjams->perPage();
-        return view('data_pepinjams.index', compact('data_pepinjams', 'i'));
+        $data_peminjams = DataPeminjam::paginate(10);
+        return view('data_peminjams.index', compact('data_peminjams'));
     }
+
 
     public function create()
     {
-        return view('data_pepinjams.create');
+        return view('data_peminjams.create');
     }
 
     public function store(Request $request)
@@ -26,21 +26,21 @@ class DataPepinjamController extends Controller
             'no_hp' => 'required|string|max:20',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
         ]);
-        DataPepinjam::create($validated);
-        return redirect()->route('data_pepinjams.index')->with('success', 'Data berhasil disimpan!');
+        DataPeminjam::create($validated);
+        return redirect()->route('data_peminjams.index')->with('success', 'Data berhasil disimpan!');
     }
 
-    public function show(DataPepinjam $data_pepinjam)
+    public function show(DataPeminjam $data_peminjam)
     {
-        return view('data_pepinjams.show', compact('data_pepinjam'));
+        return view('data_peminjams.show', compact('data_peminjam'));
     }
 
-    public function edit(DataPepinjam $data_pepinjam)
+    public function edit(DataPeminjam $data_peminjam)
     {
-        return view('data_pepinjams.edit', compact('data_pepinjam'));
+        return view('data_peminjams.edit', compact('data_peminjam'));
     }
 
-    public function update(Request $request, DataPepinjam $data_pepinjam)
+    public function update(Request $request, DataPeminjam $data_peminjam)
     {
         $validated = $request->validate([
             'nama_peminjam' => 'required|string|max:255',
@@ -48,13 +48,13 @@ class DataPepinjamController extends Controller
             'no_hp' => 'required|string|max:20',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
         ]);
-        $data_pepinjam->update($validated);
-        return redirect()->route('data_pepinjams.index')->with('success', 'Data berhasil diupdate!');
+        $data_peminjam->update($validated);
+        return redirect()->route('data_peminjams.index')->with('success', 'Data berhasil diupdate!');
     }
 
-    public function destroy(DataPepinjam $data_pepinjam)
+    public function destroy(DataPeminjam $data_peminjam)
     {
-        $data_pepinjam->delete();
-        return redirect()->route('data_pepinjams.index')->with('success', 'Data berhasil dihapus!');
+        $data_peminjam->delete();
+        return redirect()->route('data_peminjams.index')->with('success', 'Data berhasil dihapus!');
     }
 }

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -18,10 +19,14 @@ class BookController extends Controller
         return view('books.index', compact('books', 'i'));
     }
 
-    public function create()
-    {
-        return view('books.create');
-    }
+public function create()
+{
+    // 1. Ambil semua data kategori dan simpan di variabel $kategoris
+    $kategoris = Kategori::all(); 
+
+    // 2. Kirim variabel $kategoris ke view
+    return view('books.create', compact('kategoris'));
+}   
 
     public function store(Request $request)
     {

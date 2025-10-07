@@ -7,19 +7,19 @@
     <table class="table">
         <tr>
             <th>Nama Peminjam</th>
-            <td>{{ $data_pepinjam->nama_peminjam }}</td>
+            <td>{{ $data_peminjam->nama_peminjam }}</td>
         </tr>
         <tr>
             <th>Kelas</th>
-            <td>{{ $data_pepinjam->kelas }}</td>
+            <td>{{ $data_peminjam->kelas }}</td>
         </tr>
         <tr>
             <th>No HP</th>
-            <td>{{ $data_pepinjam->no_hp }}</td>
+            <td>{{ $data_peminjam->no_hp }}</td>
         </tr>
         <tr>
             <th>Jenis Kelamin</th>
-            <td>{{ $data_pepinjam->jenis_kelamin }}</td>
+            <td>{{ $data_peminjam->jenis_kelamin }}</td>
         </tr>
     </table>
     <a href="{{ route('data_peminjams.index') }}" class="btn btn-secondary">Kembali</a>

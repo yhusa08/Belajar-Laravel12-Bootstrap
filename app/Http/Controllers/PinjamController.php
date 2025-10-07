@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pinjam;
 use Illuminate\Http\Request;
+use App\Models\DataPeminjam;
+use App\Models\Book;
 
 class PinjamController extends Controller
 {
@@ -20,10 +22,17 @@ class PinjamController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('pinjams.create');
-    }
+public function create()
+{
+    // 1. Ambil semua data peminjam
+    $peminjams = DataPeminjam::all(); 
+
+    // 2. Ambil semua data buku
+    $books = Book::all(); 
+
+    // 3. Kirim kedua data ke view
+    return view('pinjams.create', compact('peminjams', 'books'));
+}
 
     /**
      * Store a newly created resource in storage.

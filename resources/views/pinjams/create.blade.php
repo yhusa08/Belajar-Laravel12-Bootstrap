@@ -9,13 +9,27 @@
             <label>Tanggal Pinjam</label>
             <input type="date" name="tanggal_pinjam" class="form-control" required>
         </div>
-        <div class="mb-3">
-            <label>Nama Peminjam</label>
-            <input type="text" name="nama_peminjam" class="form-control" required>
+        <div class="form-group">
+            <label for="nama_peminjam">Nama Peminjam</label>
+            <select class="form-control" id="nama_peminjam" name="peminjam_id">
+                <option value="">-- Pilih Peminjam --</option>
+                
+                @foreach ($peminjams as $peminjam)
+                    <option value="{{ $peminjam->id }}">
+                        {{ $peminjam->nama_peminjam }} </option>
+                @endforeach
+            </select>
         </div>
-        <div class="mb-3">
-            <label>Judul Buku</label>
-            <input type="text" name="judul_buku" class="form-control" required>
+        <div class="form-group">
+            <label for="judul_buku">Judul Buku</label>
+            <select class="form-control" id="judul_buku" name="buku_id">
+                <option value="">-- Pilih Buku --</option>
+                
+                @foreach ($books as $buku)
+                    <option value="{{ $buku->id }}">
+                        {{ $buku->judul_buku }} </option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label>Tanggal Kembali</label>

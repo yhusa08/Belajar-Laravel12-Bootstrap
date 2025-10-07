@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <h2>Tambah Data Peminjam</h2>
-    <form action="{{ route('data_pepinjams.store') }}" method="POST">
+    <form action="{{ route('data_peminjams.store') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label>Nama Peminjam</label>
@@ -39,7 +39,7 @@
             @enderror
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="{{ route('data_pepinjams.index') }}" class="btn btn-secondary">Kembali</a>
+        <a href="{{ route('data_peminjams.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
 @endsection

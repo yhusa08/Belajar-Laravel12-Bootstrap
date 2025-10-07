@@ -17,10 +17,18 @@
             <label>Penerbit</label>
             <input type="text" name="penerbit" class="form-control" required>
         </div>
-        <div class="mb-3">
-            <label>Kategori</label>
-            <input type="text" name="kategori" class="form-control" required>
-        </div>
+    <div class="form-group">
+        <label for="kategori">Kategori</label>
+        
+        <select class="form-control" id="kategori" name="kategori_id">
+            <option value="">pilih kategori</option>
+            
+            @foreach ($kategoris as $kategori)
+                <option value="{{ $kategori->id }}">
+                    {{ $kategori->kategori }} </option>
+            @endforeach
+        </select>
+    </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
         <a href="{{ route('books.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
